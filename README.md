@@ -1,6 +1,6 @@
 # **THREAT FEED / EXTERNAL DYNAMIC LIST**
 
-This list includes the IP addresses which are trying to log in to your SSLVPN or your firewall/router interface. The IP addresses are collected from private source and are updated weekly.
+This list includes the IP addresses of bots which are trying to log in to your SSLVPN or your firewall/router interface. The IP addresses are collected from private source and are updated weekly.
 
 ## **Implementation**
 

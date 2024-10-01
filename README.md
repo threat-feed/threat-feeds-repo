@@ -1,6 +1,6 @@
 # **THREAT FEED / EXTERNAL DYNAMIC LIST**
 
-This list includes IP addresses of bots which are trying to log in to your SSLVPN or your perimeter device interface. The IP addresses are collected from private source and are updated weekly.
+This list includes IP addresses of bots which are trying to log in to your SSLVPN or your perimeter device WAN interface. The IP addresses are collected from private source and are updated weekly.
 
 ## **Implementation:**
 

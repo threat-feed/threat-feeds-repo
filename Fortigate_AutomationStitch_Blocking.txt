@@ -1,0 +1,765 @@
+//Create address group to which blocked IP addresses will be added
+
+config firewall addrgrp
+edit "SSLVPN_Blocked_IPs"
+set comment "Addresses blocked by automation stitches"
+        set color 6
+    next
+end
+
+//Create automation stitch triggers for each username you want to block e.g. admin, techsupport, root etc. Remember that if the asterisk (*) is before/after the username it may affect your legit users. For example, *admin* will affect networkadmin-jsmith. Be careful with that! You can add more usernames at will. Here are the most popular ones. Put name and description (and value) as you like or just leave it like that.
+
+config system automation-trigger
+edit "SSLVPN_LOGIN_FAIL_admin"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "admin"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_fax"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "fax"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_fortigate"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*ortigate*"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_fortinet"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*ortinet*"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_guest"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "guest*"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_kiosk"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*iosk"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_printer"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*rinter"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_receiving"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*eceiving*"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_scanner"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*canner"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_sslvpn"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*slvpn*"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_teacher"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "teacher"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_test"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "test"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_voicemail"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*oicemail*"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_report"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*eport"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_general"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "general"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_frontdesk"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*rontdesk"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_tech"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "tech*"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_support"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "support"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_security"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*ecurity"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_host"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "host"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_store"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "store"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_library"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*ibrary"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_client"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*lient"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_Admin"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "Admin"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_USER"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "user*"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_Administrator"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "Administrator"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_root"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "root"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_ubuntu"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "ubuntu*"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_sophie"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "*ophie"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_hduser"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "hduser"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_pi"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "pi"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_manager"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "manager"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_system"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "system"
+            next
+        end
+    next
+end
+
+//Create automation stitch action which will be a CLI script that will create address object from the blocked IP and add it to the group you created in the first part.
+
+config system automation-action
+    edit "Block_SSLVPN_Failed"
+        set description "Block failed admin login attempts"
+        set action-type cli-script
+        set script "config firewall address
+edit SSLVPN_Block_%%log.remip%%
+set subnet %%log.remip%%/32
+set color 6
+end
+config firewall addrgrp
+edit SSLVPN_Blocked_IPs
+append member SSLVPN_Block_%%log.remip%%
+end"
+        set accprofile "super_admin"
+    next
+end
+
+//Create automation stitches that will combine trigger and action you have just created. Set trigger should be name of the trigger you created and set action the name of action, in this case it is "Block_SSLVPN_Failed".
+
+config system automation-stitch
+    edit "SSLVPN_LOGIN_FAIL_admin"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_admin"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_fax"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_fax"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_fortigate"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_fortigate"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_fortinet"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_fortinet"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_guest"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_guest"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_kiosk"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_kiosk"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_printer"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_printer"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_receiving"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_receiving"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_scanner"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_scanner"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_sslvpn"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_sslvpn"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_teacher"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_teacher"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_test"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_test"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_voicemail"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_voicemail"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_report"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_report"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_general"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_general"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_frontdesk"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_frontdesk"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_tech"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_tech"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_support"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_support"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_security"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_security"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_host"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_host"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_store"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_store"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_library"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_library"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_client"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_client"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_Admin"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_Admin"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_USER"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_USER"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_Administrator"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_Administrator"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_root"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_root"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_ubuntu"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_ubuntu"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_pi"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_pi"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_sophie"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_sophie"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_hduser"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_hduser"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_manager"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_manager"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_appadmin"
+    	set description "SSLVPN_Block"
+   	 set trigger "SSLVPN_LOGIN_FAIL_appadmin"
+    	config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_system"
+        set description "SSL_VPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_system"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+end
+
+//Finally, you can use address group you have created in step 1 "SSLVPN_Blocked_IPs" in SSLVPN settings or local in policy.
+
+config vpn ssl settings
+set source-address "SSLVPN_Blocked_IPs"
+set source-address-negate enable
+end
+end
+
+config firewall local-in-policy
+    edit 1
+        set intf "any"
+        set srcaddr "SSLVPN_Blocked_IPs" //source address is address from step 1
+        set srcaddr-negate disable
+        set dstaddr "all"
+        set dstaddr-negate disable
+        set action deny
+        set service "MGMT_Port" "HTTPS" //here you choose ports you would like to block traffic to, I used custom MGMT port and VPN port-HTTPS
+        set service-negate disable
+        set schedule "always"
+        set status enable
+        set comments "Blocks access from malicious IP addresses added in SSLVPN_Blocked_IPs"
+    next
+end
+

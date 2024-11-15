@@ -1,4 +1,8 @@
-//Create address group to which blocked IP addresses will be added
+Here is configuration of automation stitches that block SSLVPN login attempts with generic usernames such as "admin", "fortinet", "manager", "support" etc. The automation stitches create address objects and add them to a address group of your choice. You can then use this group in VPN settings, local-in policy or security policy (to Loopback) to block access from those IP addresses. You can also do the same for web GUI failed logins, but use %%log.srcip%% instead of %%log.remip%% in automation action. Enjoy!
+
+
+
+//Create address group to which blocked IP addresses will be added. Name it as you like.
 
 config firewall addrgrp
 edit "SSLVPN_Blocked_IPs"

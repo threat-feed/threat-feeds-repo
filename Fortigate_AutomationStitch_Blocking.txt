@@ -631,9 +631,9 @@ config system automation-stitch
             next
         end
     next
-    edit "SSLVPN_LOGIN_FAIL_Admin"
+    edit "SSLVPN_LOGIN_FAIL_admin"
         set description "SSLVPN_Block"
-        set trigger "SSLVPN_LOGIN_FAIL_Admin"
+        set trigger "SSLVPN_LOGIN_FAIL_admin"
         config actions
             edit 1
                 set action "Block_SSLVPN_Failed"

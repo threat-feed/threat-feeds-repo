@@ -25,6 +25,17 @@ edit "SSLVPN_LOGIN_FAIL_admin"
             next
         end
     next
+    edit "SSLVPN_LOGIN_FAIL_appadmin"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "appadmin"
+            next
+        end
+    next
     edit "SSLVPN_LOGIN_FAIL_fax"
         set description "SSLVPN_LOGIN_FAIL"
         set event-type event-log
@@ -711,9 +722,9 @@ config system automation-stitch
         end
     next
     edit "SSLVPN_LOGIN_FAIL_appadmin"
-    	set description "SSLVPN_Block"
-   	 set trigger "SSLVPN_LOGIN_FAIL_appadmin"
-    	config actions
+        set description "SSL_VPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_appadmin"
+        config actions
             edit 1
                 set action "Block_SSLVPN_Failed"
                 set required enable

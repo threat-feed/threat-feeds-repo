@@ -278,7 +278,7 @@ edit "SSLVPN_LOGIN_FAIL_admin"
             next
         end
     next
-    edit "SSLVPN_LOGIN_FAIL_USER"
+    edit "SSLVPN_LOGIN_FAIL_user"
         set description "SSLVPN_LOGIN_FAIL"
         set event-type event-log
         set logid 39426
@@ -318,7 +318,7 @@ edit "SSLVPN_LOGIN_FAIL_admin"
         config fields
             edit 1
                 set name "user"
-                set value "ubuntu*"
+                set value "ubuntu"
             next
         end
     next
@@ -379,6 +379,375 @@ edit "SSLVPN_LOGIN_FAIL_admin"
     next
 end
 
+//This is the same as previous step but only for admin login attempts on GUI
+
+config system automation-trigger
+edit "ADMIN_LOGIN_FAIL_admin"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "admin"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_appadmin"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "appadmin"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_fax"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "fax"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_fortigate"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "*ortigate*"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_fortinet"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "*ortinet*"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_guest"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "guest*"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_kiosk"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "*iosk"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_printer"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "*rinter"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_receiving"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "*eceiving*"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_scanner"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "*canner"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_sslvpn"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "*slvpn*"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_teacher"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "teacher"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_test"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "test"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_voicemail"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "*oicemail*"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_report"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "*eport"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_general"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "general"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_frontdesk"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "*rontdesk"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_tech"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "tech*"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_support"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "support"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_security"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "*ecurity"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_host"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "host"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_store"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "store"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_library"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "*ibrary"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_client"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "*lient"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_user"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "user*"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_Administrator"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "Administrator"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_root"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "root"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_ubuntu"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "ubuntu"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_sophie"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "*ophie"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_hduser"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "hduser"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_pi"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "pi"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_manager"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "manager"
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_system"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "system"
+            next
+        end
+    next
+end
+
+
 //Create automation stitch action which will be a CLI script that will create address object from the blocked IP and add it to the group you created in the first part.
 
 config system automation-action
@@ -393,6 +762,25 @@ end
 config firewall addrgrp
 edit SSLVPN_Blocked_IPs
 append member SSLVPN_Block_%%log.remip%%
+end"
+        set accprofile "super_admin"
+    next
+end
+
+//Same action just for admin login on web GUI
+
+config system automation-action
+    edit "Block_Admin_Login_Failed"
+        set description "Block failed admin login attempts"
+        set action-type cli-script
+        set script "config firewall address
+edit AdminLogin_Block_%%log.srcip%%
+set subnet %%log.srcip%%/32
+set color 6
+end
+config firewall addrgrp
+edit SSLVPN_Blocked_Probes
+append member AdminLogin_Block_%%log.srcip%%
 end"
         set accprofile "super_admin"
     next
@@ -641,9 +1029,9 @@ config system automation-stitch
             next
         end
     next
-    edit "SSLVPN_LOGIN_FAIL_USER"
+    edit "SSLVPN_LOGIN_FAIL_user"
         set description "SSLVPN_Block"
-        set trigger "SSLVPN_LOGIN_FAIL_USER"
+        set trigger "SSLVPN_LOGIN_FAIL_user"
         config actions
             edit 1
                 set action "Block_SSLVPN_Failed"
@@ -742,6 +1130,342 @@ config system automation-stitch
         end
     next
 end
+
+//The same as above just for admin login to web GUI
+
+config system automation-stitch
+    edit "ADMIN_LOGIN_FAIL_admin"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_admin"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_fax"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_fax"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_fortigate"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_fortigate"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_fortinet"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_fortinet"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_guest"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_guest"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_kiosk"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_kiosk"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_printer"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_printer"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_receiving"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_receiving"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_scanner"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_scanner"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_sslvpn"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_sslvpn"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_teacher"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_teacher"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_test"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_test"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_voicemail"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_voicemail"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_report"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_report"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_general"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_general"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_frontdesk"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_frontdesk"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_tech"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_tech"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_support"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_support"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_security"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_security"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_host"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_host"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_store"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_store"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_library"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_library"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_client"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_client"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_user"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_user"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_Administrator"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_Administrator"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_root"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_root"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_ubuntu"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_ubuntu"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_pi"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_pi"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_sophie"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_sophie"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_hduser"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_hduser"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_manager"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_manager"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_appadmin"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_appadmin"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+    edit "ADMIN_LOGIN_FAIL_system"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_system"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+end
+
 
 //Finally, you can use address group you have created in step 1 "SSLVPN_Blocked_IPs" in SSLVPN settings or local in policy.
 

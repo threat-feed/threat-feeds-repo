@@ -267,17 +267,6 @@ edit "SSLVPN_LOGIN_FAIL_admin"
             next
         end
     next
-    edit "SSLVPN_LOGIN_FAIL_admin"
-        set description "SSLVPN_LOGIN_FAIL"
-        set event-type event-log
-        set logid 39426
-        config fields
-            edit 1
-                set name "user"
-                set value "admin"
-            next
-        end
-    next
     edit "SSLVPN_LOGIN_FAIL_USER"
         set description "SSLVPN_LOGIN_FAIL"
         set event-type event-log

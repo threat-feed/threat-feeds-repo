@@ -241,7 +241,7 @@ edit "SSLVPN_LOGIN_FAIL_admin"
         config fields
             edit 1
                 set name "user"
-                set value "host"
+                set value "host*"
             next
         end
     next
@@ -609,7 +609,7 @@ edit "ADMIN_LOGIN_FAIL_admin"
         config fields
             edit 1
                 set name "user"
-                set value "host"
+                set value "host*"
             next
         end
     next

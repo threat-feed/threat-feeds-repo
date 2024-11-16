@@ -1,11 +1,11 @@
-Here is configuration of automation stitches that block SSLVPN login attempts with generic usernames such as "admin", "fortinet", "manager", "support" etc. The automation stitches create address objects and add them to a address group of your choice. You can then use this group in VPN settings, local-in policy or security policy (to Loopback) to block access from those IP addresses. You can also do the same for web GUI failed logins, but use %%log.srcip%% instead of %%log.remip%% in automation action. Enjoy!
+Here is configuration of automation stitches that block SSLVPN login and web GUI login attempts with generic usernames such as "admin", "fortinet", "manager", "support" etc. The automation stitches create address objects and add them to a address group of your choice. You can then use this group in VPN settings, local-in policy or security policy (to Loopback) to block access from those IP addresses. You can also do the same for web GUI failed logins, but use %%log.srcip%% instead of %%log.remip%% in automation action. Enjoy!
 
 
 
-//Create address group to which blocked IP addresses will be added. Name it as you like.
+//Create address group to which blocked IP addresses will be added.
 
 config firewall addrgrp
-edit "SSLVPN_Blocked_IPs"
+edit "Blocked_addresses"
 set comment "Addresses blocked by automation stitches"
         set color 6
     next
@@ -14,29 +14,7 @@ end
 //Create automation stitch triggers for each username you want to block e.g. admin, techsupport, root etc. Remember that if the asterisk (*) is before/after the username it may affect your legit users. For example, *admin* will affect networkadmin-jsmith. Be careful with that! You can add more usernames at will. Here are the most popular ones. Put name and description (and value) as you like or just leave it like that.
 
 config system automation-trigger
-edit "SSLVPN_LOGIN_FAIL_admin"
-        set description "SSLVPN_LOGIN_FAIL"
-        set event-type event-log
-        set logid 39426
-        config fields
-            edit 1
-                set name "user"
-                set value "admin"
-            next
-        end
-    next
-    edit "SSLVPN_LOGIN_FAIL_appadmin"
-        set description "SSLVPN_LOGIN_FAIL"
-        set event-type event-log
-        set logid 39426
-        config fields
-            edit 1
-                set name "user"
-                set value "appadmin"
-            next
-        end
-    next
-    edit "SSLVPN_LOGIN_FAIL_fax"
+edit "SSLVPN_LOGIN_FAIL_fax"
         set description "SSLVPN_LOGIN_FAIL"
         set event-type event-log
         set logid 39426
@@ -278,6 +256,17 @@ edit "SSLVPN_LOGIN_FAIL_admin"
             next
         end
     next
+    edit "SSLVPN_LOGIN_FAIL_admin"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "admin"
+            next
+        end
+    next
     edit "SSLVPN_LOGIN_FAIL_user"
         set description "SSLVPN_LOGIN_FAIL"
         set event-type event-log
@@ -377,9 +366,20 @@ edit "SSLVPN_LOGIN_FAIL_admin"
             next
         end
     next
+    edit "SSLVPN_LOGIN_FAIL_appadmin"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "appadmin"
+            next
+        end
+    next
 end
 
-//This is the same as previous step but only for admin login attempts on GUI
+//Create automation triggers for failed admin login attempts to web GUI 
 
 config system automation-trigger
 edit "ADMIN_LOGIN_FAIL_admin"
@@ -748,7 +748,7 @@ edit "ADMIN_LOGIN_FAIL_admin"
 end
 
 
-//Create automation stitch action which will be a CLI script that will create address object from the blocked IP and add it to the group you created in the first part.
+//Create automation stitch action which will be a CLI script that will create address object from the blocked IP (SSLVPN login attempts) and add it to the group you created in the first part.
 
 config system automation-action
     edit "Block_SSLVPN_Failed"
@@ -760,14 +760,14 @@ set subnet %%log.remip%%/32
 set color 6
 end
 config firewall addrgrp
-edit SSLVPN_Blocked_IPs
+edit Blocked_addresses
 append member SSLVPN_Block_%%log.remip%%
 end"
         set accprofile "super_admin"
     next
 end
 
-//Same action just for admin login on web GUI
+//Create automation stitch action which will be a CLI script that will create address object from the blocked IP (web GUI login attempts) and add it to the group you created in the first part.
 
 config system automation-action
     edit "Block_Admin_Login_Failed"
@@ -779,7 +779,7 @@ set subnet %%log.srcip%%/32
 set color 6
 end
 config firewall addrgrp
-edit SSLVPN_Blocked_Probes
+edit Blocked_addresses
 append member AdminLogin_Block_%%log.srcip%%
 end"
         set accprofile "super_admin"
@@ -1131,7 +1131,7 @@ config system automation-stitch
     next
 end
 
-//The same as above just for admin login to web GUI
+////Create automation stitches that will combine trigger and action you have created for web GUI login attempts. Set trigger should be name of the trigger you created and set action the name of action, in this case it is "Block_Admin_Login_Failed".
 
 config system automation-stitch
     edit "ADMIN_LOGIN_FAIL_admin"
@@ -1467,10 +1467,10 @@ config system automation-stitch
 end
 
 
-//Finally, you can use address group you have created in step 1 "SSLVPN_Blocked_IPs" in SSLVPN settings or local in policy.
+//Finally, you can use address group you have created in step 1 "Blocked_addresses" in SSLVPN settings or local in policy.
 
 config vpn ssl settings
-set source-address "SSLVPN_Blocked_IPs"
+set source-address "Blocked_addresses"
 set source-address-negate enable
 end
 end
@@ -1478,7 +1478,7 @@ end
 config firewall local-in-policy
     edit 1
         set intf "any"
-        set srcaddr "SSLVPN_Blocked_IPs" //source address is address from step 1
+        set srcaddr "Blocked_addresses" //source address is address from step 1
         set srcaddr-negate disable
         set dstaddr "all"
         set dstaddr-negate disable
@@ -1487,7 +1487,7 @@ config firewall local-in-policy
         set service-negate disable
         set schedule "always"
         set status enable
-        set comments "Blocks access from malicious IP addresses added in SSLVPN_Blocked_IPs"
+        set comments "Blocks access from malicious IP addresses added in Blocked addresses"
     next
 end
 

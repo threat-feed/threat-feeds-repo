@@ -1491,3 +1491,54 @@ config firewall local-in-policy
     next
 end
 
+
+//FOR EACH NEW USERNAME YOU HAVE TO CREATE 2 NEW TRIGGERS (SSLVPN AND ADMIN) AND 2 NEW AUTOMATION STITCHES. UNDER <username> ADD SOME USERNAME.
+
+config system automation-trigger
+    edit "ADMIN_LOGIN_FAIL_<username>"
+        set description "ADMIN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 32002
+        config fields
+            edit 1
+                set name "user"
+                set value "<username>"
+            next
+        end
+    next
+    edit "SSLVPN_LOGIN_FAIL_<username>"
+        set description "SSLVPN_LOGIN_FAIL"
+        set event-type event-log
+        set logid 39426
+        config fields
+            edit 1
+                set name "user"
+                set value "<username>"
+            next
+        end
+    next
+end
+config system automation-stitch
+    edit "ADMIN_LOGIN_FAIL_<username>"
+        set description "Admin_Login_Block"
+        set trigger "ADMIN_LOGIN_FAIL_<username>"
+        config actions
+            edit 1
+                set action "Block_Admin_Login_Failed"
+                set required enable
+            next
+        end
+    next
+     edit "SSLVPN_LOGIN_FAIL_<username>"
+        set description "SSLVPN_Block"
+        set trigger "SSLVPN_LOGIN_FAIL_<username>"
+        config actions
+            edit 1
+                set action "Block_SSLVPN_Failed"
+                set required enable
+            next
+        end
+    next
+end
+
+

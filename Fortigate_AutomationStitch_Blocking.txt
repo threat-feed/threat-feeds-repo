@@ -54,7 +54,7 @@ edit "SSLVPN_LOGIN_FAIL_fax"
         config fields
             edit 1
                 set name "user"
-                set value "guest*"
+                set value "guest"
             next
         end
     next
@@ -444,7 +444,7 @@ edit "ADMIN_LOGIN_FAIL_admin"
         config fields
             edit 1
                 set name "user"
-                set value "guest*"
+                set value "guest"
             next
         end
     next
